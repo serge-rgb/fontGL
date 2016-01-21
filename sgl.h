@@ -25,5 +25,5 @@ do {   \
 #define sgl_max(a, b) ((a) < (b) ? b : a)
 #define sgl_abs(a, b) sgl_max(a,b) - sgl_min(a,b)
 
-
 #define sgl_calloc(type, count) (type*)calloc(sizeof(type), count);
+#define sgl_free(ptr) do { if (ptr) { free(ptr); ptr = NULL; } else { sgl_assert(!"Double free!"); } } while(0)
